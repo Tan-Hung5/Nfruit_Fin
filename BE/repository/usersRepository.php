@@ -11,7 +11,7 @@ class UserRepository {
         $stmt = $this->pdo->prepare("INSERT INTO users (username, email, phone, password, create_at) VALUES (?, ?, ?, ?, ?)");
         
         $stmt->execute([$user->username, $user->email, $user->phone, $user->password, $user->create_at]);
-        $stmt = $this->pdo->prepare("INSERT INTO cart (user_id, create_at) VALUES (LAST_INSERT_ID(), ? )");
+        $stmt = $this->pdo->prepare("INSERT INTO carts (user_id, create_at) VALUES (LAST_INSERT_ID(), ? )");
         $stmt->execute([$user->create_at]);
     }
 
