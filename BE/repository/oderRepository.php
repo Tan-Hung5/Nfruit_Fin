@@ -1,4 +1,5 @@
 <?php
+require 'Mailer/sendMail.php';
 
 class OderRepository {
     private $pdo;
@@ -11,14 +12,12 @@ class OderRepository {
         $items = $order->order_items;
         $stmt = $this->pdo->prepare("INSERT INTO orders (user_id, total_amount, order_date, order_items, status) VALUES ( ?, ?, ?, ?, ? )");
         $stmt->execute([$order->user_Id, $order->total_amount, $order->order_date,json_encode($items),'confirming order']);
-      
+        $r = new UserRepository($this->pdo);
+        $email = $r->getEmailUser($order->user_Id);
+        $email = $email['email'];
+        $mail = new MyMailer;
+        $mail->sendMailConfirmOrder($order, $email);
     }
-
-    public function getOrderItemsById($userId) {
-        $data = $this->getOderByUserId($userId);
-        return $data->order_items;
-    }
-
     public function getAllOrder() {
         $stmt = $this->pdo->prepare("SELECT * FROM orders");
         $stmt->execute();

@@ -9,14 +9,14 @@ class User {
     public $create_at;
     public $password;
 
-    public function __construct($id, $username, $email, $phone, $password, $role) {
+    public function __construct($id, $username, $email, $phone, $password, $role, $date) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->phone = $phone;
         $this->role = $role;
         $this->password = $password;
-        $this->create_at = date('Y-m-d H:i:s');
+        $this->create_at = $date;
 
     }
 

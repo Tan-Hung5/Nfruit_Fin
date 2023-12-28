@@ -14,6 +14,7 @@ require_once './handler/usershandler.php';
 require_once './handler/productHandler.php';
 require_once './handler/cartHandler.php';
 require_once './handler/oderHandler.php';
+require_once './handler/mailerHandler.php';
 require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
@@ -63,6 +64,11 @@ $oderHandler = new OderHandler($orderRepository);
 $app->get('/api/v1/orders',[$oderHandler,'getAllOrder']);
 $app->get('/api/v1/order/{id}',[$oderHandler,'getOrderByUserId']);
 $app->post('/api/v1/order/{id}',[$oderHandler,'addOder']);
+
+//send mail
+$mymailer = new MyMailer;
+$mailHandler = new MailerHandler($mymailer);
+$app->post('/api/v1/sendmail',[$mailHandler,'sendMailActiveCode']);
 
 // Run Slim application
 $app->run();

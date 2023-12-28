@@ -40,19 +40,22 @@ class UserHandler {
 
     public function auth(Request $request, Response $response, array $args): Response {
         $data = $request->getParsedBody();
-        $userId = $data['id'];
-        $user = $this->userRepository->auth($userId);
+        $userEmail = $data['email'];
+        $password = $data['password'];
+        $user = $this->userRepository->auth($userEmail,$password);
 
         if ($user) {
-            return $response->withJson($user);
+            return $response->withStatus(200);
         } else {
-            return $response->withJson(['error' => 'User not found'], 404);
+            return $response->withStatus(404);
         }
     }
 
     public function createUser(Request $request, Response $response): Response {
         $data = $request->getParsedBody();
-        $user = new User(null,$data['username'],$data['email'],$data['phone'],$data['password'],null);
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = date('Y-m-d H:i:s');
+        $user = new User(null,$data['username'],$data['email'],$data['phone'],$data['password'],null,$date);
         if (!empty($data['username']) && !empty($data['email']) && !empty($data['phone']) && !empty($data['password'])) {
             $this->userRepository->createUser($user);
             return $response->withJson(['message' => 'User created successfully']);
