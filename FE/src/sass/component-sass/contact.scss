@@ -1,0 +1,17 @@
+.contact{
+    background-color: rgb(160, 161, 162);
+    width: 100vw;
+   .logo-contact{
+    color: black;
+   }
+   a{
+    color: black;
+    &:hover{
+        color: rgb(135, 135, 135);
+    }
+   }
+   li{
+    list-style: none;
+    margin-bottom: 10px;
+   }
+}
