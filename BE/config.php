@@ -2,7 +2,7 @@
 
 //database
 
-const _HOST = 'localhost';
-const _USER = 'hung';
-const _DB_NAME = 'nfruitdb';
-const _PASSWORD ='dn2V3NSU13zOFq8';
+const _HOST = 'sql.freedb.tech';
+const _USER = 'freedb_hungdev';
+const _DB_NAME = 'freedb_nfruitdb';
+const _PASSWORD ='6TjYd&d89W4p!3e';

@@ -16,7 +16,7 @@ function App() {
     
         <Nav/>
         <Routes>
-          <Route exact path='/web-shop-Nfruits' element={<Home/>}/>
+          <Route exact path='/home' element={<Home/>}/>
           <Route  path='/products' element={<Products/>}/>
           <Route  path='/products/:name' element={<Product/>}/>
           <Route  path='/cart' element={<ShoppingCart/>}/>

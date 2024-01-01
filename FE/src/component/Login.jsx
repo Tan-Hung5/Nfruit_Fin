@@ -2,28 +2,6 @@ import React from 'react'
 import logo from '../assets/logoshop.png'
 import { NavLink } from 'react-router-dom'
 
-handleClick = () => {
-    email = document.getElementById('inputemail')
-    password = document.getElementById('inputpassword')
-    bodyjson = {
-        email: email,
-        password: passowrd
-    }
-    fetch('/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({bodyjson}),
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Handle the response
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-}
 
 const Login = () => {
   return (
@@ -41,7 +19,7 @@ const Login = () => {
                     <div>
                         <button className='btn btn-success my-2' style={{width:200}}>Login</button>
                         <div>                     
-                        <NavLink to="/register"> <button onClick={handleClick} className='btn btn-outline-success' style={{width:200}}> SignUp</button></NavLink>
+                        <NavLink to="/register"> <button className='btn btn-outline-success' style={{width:200}}> SignUp</button></NavLink>
                         </div>                      
                     </div>                  
                 </div>

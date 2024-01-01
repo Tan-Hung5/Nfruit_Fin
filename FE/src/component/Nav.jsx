@@ -19,7 +19,6 @@ function Nav() {
   
 
   useEffect(() => {
-    fetchData();
     document.addEventListener('click', handleClickOutside);
     return () => {
       document.removeEventListener('click', handleClickOutside);

@@ -2,7 +2,7 @@
 
 require_once './config.php';
 require_once './database/connect.php';
-require_once './model/usersmodel.php';
+require_once './model/usersModel.php';
 require_once './model/productsModel.php';
 require_once './model/cartModel.php';
 require_once './model/oderModel.php';
@@ -10,7 +10,7 @@ require_once './repository/productsRepository.php';
 require_once './repository/usersRepository.php';
 require_once './repository/cartRepository.php';
 require_once './repository/oderRepository.php';
-require_once './handler/usershandler.php';
+require_once './handler/usersHandler.php';
 require_once './handler/productHandler.php';
 require_once './handler/cartHandler.php';
 require_once './handler/oderHandler.php';
